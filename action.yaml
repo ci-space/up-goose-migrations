@@ -21,7 +21,7 @@ inputs:
 
 runs:
   using: docker
-  image: 'artsafin/goose-migrations'
+  image: 'docker://artsafin/goose-migrations'
   env:
     GOOSE_DBSTRING: ${{ inputs.dsn }}
     GOOSE_DRIVER: ${{ inputs.driver }}
