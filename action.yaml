@@ -27,4 +27,4 @@ runs:
     GOOSE_DRIVER: ${{ inputs.driver }}
     GOOSE_MIGRATION_DIR: ${{ inputs.dir }}
   args:
-    - goose up
+    - up
