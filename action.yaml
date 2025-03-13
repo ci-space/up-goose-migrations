@@ -1,0 +1,24 @@
+name: "Up Goose migrations"
+description: "Action for install and up Goose migrations"
+branding:
+  icon: arrow-up
+  color: blue
+
+inputs:
+  dsn:
+    description: Data source name
+    required: true
+
+  driver:
+    description: Database driver
+    default: postgres
+    required: false
+
+runs:
+  using: docker
+  image: 'artsafin/goose-migrations'
+  env:
+    GOOSE_DBSTRING: ${{ inputs.dsn }}
+    GOOSE_DRIVER: ${{ inputs.driver }}
+  args:
+    - goose up
