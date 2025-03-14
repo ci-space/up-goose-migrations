@@ -1,0 +1,31 @@
+name: Testing
+
+on: push
+
+jobs:
+  run-migrations:
+    services:
+      postgres:
+        image: postgres:12
+        env:
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v3
+
+      - name: Run migrations
+        uses: ci-space/up-goose-migrations@master
+        with:
+          dsn: "host=postgres user=test password=test dbname=db sslmode=disable"
+          dir: ./tests/migrations
