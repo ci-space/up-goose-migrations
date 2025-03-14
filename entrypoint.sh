@@ -10,4 +10,4 @@ if [ ! -d ${INPUT_DIR} ]; then
     exit 1
 fi
 
-goose up ${INPUT_DIR}
+goose up -dir ${INPUT_DIR}
