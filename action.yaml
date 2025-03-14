@@ -26,4 +26,6 @@ runs:
     GOOSE_DBSTRING: ${{ inputs.dsn }}
     GOOSE_DRIVER: ${{ inputs.driver }}
     GOOSE_MIGRATION_DIR: ${{ inputs.dir }}
-  entrypoint: ./entrypoint.sh
+  args:
+    - goose
+    - up
