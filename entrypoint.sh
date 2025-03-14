@@ -1,10 +1,12 @@
 #!/bin/sh
 
-echo "cwd:${PWD}\n"
-ls .
+echo "cwd:${PWD}"
+echo "migrations directory: ${INPUT_DIR}"
 
-if [ ! -f ${INPUT_DIR} ]; then
-    echo "migrations directory not found"
+if [ ! -d ${INPUT_DIR} ]; then
+    echo "error: migrations directory not found"
+    echo "ls for current directory"
+    ls .
     exit 1
 fi
 
