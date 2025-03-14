@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "cwd:${PWD}"
+echo "cwd: ${PWD}"
 echo "migrations directory: ${INPUT_DIR}"
 
 if [ ! -d ${INPUT_DIR} ]; then
@@ -8,6 +8,8 @@ if [ ! -d ${INPUT_DIR} ]; then
     echo "ls for current directory"
     ls .
     exit 1
+else
+    echo "info: migrations directory exists"
 fi
 
-goose up -dir ${INPUT_DIR}
+goose up
