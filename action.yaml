@@ -15,7 +15,7 @@ inputs:
     required: false
 
   dir:
-    description: Migrations directory
+    description: Relative path to directory with migration files
     default: ./migrations
     required: false
 
