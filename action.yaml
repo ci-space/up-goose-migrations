@@ -25,6 +25,4 @@ runs:
   env:
     GOOSE_DBSTRING: ${{ inputs.dsn }}
     GOOSE_DRIVER: ${{ inputs.driver }}
-  args:
-    - "up"
-    - "-dir ${{ inputs.dir }}"
+  entrypoint: ./entrypoint.sh
