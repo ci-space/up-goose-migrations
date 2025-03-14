@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo "cwd:${PWD}\n"
 ls .
 
