@@ -21,10 +21,10 @@ inputs:
 
 runs:
   using: docker
-  image: 'docker://artsafin/goose-migrations'
+  image: docker://artsafin/goose-migrations
   env:
     GOOSE_DBSTRING: ${{ inputs.dsn }}
     GOOSE_DRIVER: ${{ inputs.driver }}
-    GOOSE_MIGRATION_DIR: ${{ inputs.dir }}
   args:
-    - up
+    - "up"
+    - "-dir ${{ inputs.dir }}"
